@@ -1,0 +1,50 @@
+/* Base */
+:root {
+  --bg: #f2ede4;
+  --ink: #222;
+  --muted: #555;
+  --rule: #ddd;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Nav (shared) */
+nav {
+  position: sticky; top: 0;
+  background: var(--bg);
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  z-index: 10;
+}
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0 1rem;
+}
+nav a:hover { text-decoration: underline; }
+nav a.active { text-decoration: underline; }
+
+/* Layout helpers */
+main, .wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+}
+
+h1 { font-size: clamp(2rem, 6vw, 3rem); margin: 0 0 .5rem; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .6rem; color: #333; }
+p  { color: #333; margin: .6rem auto; }
+
+/* Footer */
+footer { margin: 3rem 0 2rem; color: var(--muted); font-size: .95rem; }
+footer a { color: inherit; text-decoration: underline; }
