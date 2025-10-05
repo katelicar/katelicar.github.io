@@ -6,6 +6,52 @@
   <title>Katelyn Carriker | Doing IT Right</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
+      /* 🌙 Dark Mode */
+  :root {
+    --bg: #f2ede4;
+    --ink: #222;
+    --muted: #444;
+    --rule: #ddd;
+  }
+
+  body.dark {
+    --bg: #1e1e1e;
+    --ink: #f2ede4;
+    --muted: #cfcfcf;
+    --rule: #333;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  nav {
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  nav a {
+    color: var(--ink);
+  }
+
+  #theme-toggle {
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    color: var(--ink);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  #theme-toggle:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
     /* Nav */
     nav {
       background-color: #f2ede4;
