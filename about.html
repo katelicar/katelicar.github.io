@@ -6,64 +6,59 @@
   <title>About | Katelyn Carriker</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
-    /* Nav */
-    nav {
-      background-color: #f2ede4;
-      text-align: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid #ddd;
-    }
-    nav a {
-      color: #222;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 1rem;
-    }
-    nav a:hover { text-decoration: underline; }
+    /* Theme variables */
+    :root { --bg:#f2ede4; --ink:#222; --muted:#444; --rule:#ddd; }
+    body.dark { --bg:#1e1e1e; --ink:#f2ede4; --muted:#cfcfcf; --rule:#333; }
 
-    /* Page */
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #f2ede4;
-      color: #222;
-      margin: 0;
-      text-align: center;
-      line-height: 1.6;
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      background:var(--bg); color:var(--ink);
+      font-family:"Helvetica Neue", Arial, sans-serif;
+      text-align:center; line-height:1.6;
+      transition:background-color .3s ease,color .3s ease;
     }
-    main {
-      max-width: 750px;
-      margin: 0 auto;
-      padding: 3rem 1rem 4rem;
+
+    /* Nav (with right-aligned toggle) */
+    nav{
+      background:var(--bg); border-bottom:1px solid var(--rule);
+      padding:1rem 1rem; position:sticky; top:0; z-index:10;
+      display:flex; justify-content:center;
     }
-    h1 {
-      font-size: 2.4em;
-      margin-bottom: 0.8em;
+    .nav-inner{
+      width:100%; max-width:900px; position:relative;
+      display:flex; justify-content:center; gap:1rem; align-items:center;
     }
-    p {
-      font-size: 1.05em;
-      color: #444;
-      margin: 0.5rem auto;
+    nav a{ color:var(--ink); text-decoration:none; font-weight:bold; margin:0 .5rem; }
+    nav a:hover{ text-decoration:underline; }
+    #theme-toggle{
+      position:absolute; right:0; cursor:pointer; background:none; border:none;
+      font-size:1.2rem; line-height:1; padding:.25rem .4rem; color:var(--ink);
+      transition:transform .2s ease;
     }
-    a {
-      color: #444;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #666;
-      padding-bottom: 2rem;
-    }
+    #theme-toggle:hover{ transform:scale(1.15); }
+
+    /* Page layout */
+    main{ max-width:750px; margin:0 auto; padding:3rem 1rem 4rem; }
+    h1{ font-size:2.4em; margin:0 0 .8em; }
+    p{ font-size:1.05em; color:var(--muted); margin:.5rem auto; }
+
+    footer{ margin-top:4rem; font-size:.9rem; color:#888; padding-bottom:2rem; }
+    footer a{ color:inherit; text-decoration:underline; }
   </style>
 </head>
 
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="now.html">Now</a>
+    <div class="nav-inner">
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="now.html">Now</a>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
   </nav>
 
   <main>
@@ -80,11 +75,28 @@
     <p>I believe curiosity is the best skill anyone can have. It’s what’s carried me through every role I’ve taken — from helping someone one-on-one to building something that helps hundreds at once.</p>
 
     <p>Outside of work, I spend my time with my fiancé, reading fantasy books, tending to my plants, and caring for a small army of cats, a bearded dragon, a rabbit, and a puppy. My life isn’t always perfectly ordered, but it’s full — and I wouldn’t have it any other way.</p>
+
+    <footer>
+      <p><a href="https://www.linkedin.com/in/katelyn-carriker/" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:katelyn.carriker@gmail.com">Email</a></p>
+      <p>© 2025 Katelyn Carriker | Doing IT Right</p>
+    </footer>
   </main>
 
-  <footer>
-    <p><a href="https://www.linkedin.com/in/katelyn-carriker/" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:katelyn.carriker@gmail.com">Email</a></p>
-    <p>© 2025 Katelyn Carriker | Doing IT Right</p>
-  </footer>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      toggle.textContent = '☀️';
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggle.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
