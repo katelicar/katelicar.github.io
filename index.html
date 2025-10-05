@@ -6,100 +6,31 @@
   <title>Katelyn Carriker | Doing IT Right</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
-      /* 🌙 Dark Mode */
-  :root {
-    --bg: #f2ede4;
-    --ink: #222;
-    --muted: #444;
-    --rule: #ddd;
-  }
-
-  body.dark {
-    --bg: #1e1e1e;
-    --ink: #f2ede4;
-    --muted: #cfcfcf;
-    --rule: #333;
-  }
-
-  body {
-    background-color: var(--bg);
-    color: var(--ink);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  nav {
-    background-color: var(--bg);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  nav a {
-    color: var(--ink);
-  }
-
-  #theme-toggle {
-    cursor: pointer;
-    background: none;
-    border: 1px solid var(--rule);
-    border-radius: 6px;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.9rem;
-    margin-left: 1rem;
-    color: var(--ink);
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-  #theme-toggle:hover {
-    background: var(--ink);
-    color: var(--bg);
-  }
-
-    /* Nav */
-    nav {
-      background-color: #f2ede4;
-      text-align: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid #ddd;
+    /* 🌙 Dark Mode Variables */
+    :root {
+      --bg: #f2ede4;
+      --ink: #222;
+      --muted: #444;
+      --rule: #ddd;
     }
-    nav a {
-      color: #222;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 1rem;
-    }
-    nav a:hover { text-decoration: underline; }
 
-    /* Page */
+    body.dark {
+      --bg: #1e1e1e;
+      --ink: #f2ede4;
+      --muted: #cfcfcf;
+      --rule: #333;
+    }
+
+    /* 🌗 Shared Styling */
     body {
+      background-color: var(--bg);
+      color: var(--ink);
       font-family: "Helvetica Neue", sans-serif;
-      background-color: #f2ede4;
-      color: #222;
       text-align: center;
       margin: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    main { padding: 3rem 1rem 4rem; }
-    h1 { font-size: 3em; margin: 0 0 .2em; }
-    p  { font-size: 1.2em; color: #444; margin: .4em 0; }
-    a  { color: #444; text-decoration: none; font-weight: bold; }
-    a:hover { text-decoration: underline; }
-  </style>
-</head>
 
-<body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="now.html">Now</a>
-  </nav>
-
-  <main>
-    <h1>Doing IT Right</h1>
-    <p>Hi, I’m <strong>Katelyn Carriker</strong></p>
-    <p>Tech whisperer | Problem solver | Cat wrangler</p>
-
-    <p>Connect with me on
-      <a href="https://www.linkedin.com/in/katelyn-carriker/" target="_blank" rel="noopener">LinkedIn</a>
-    </p>
-
-    <p><a href="about.html">Read more about me →</a></p>
-  </main>
-</body>
-</html>
+    /* 🧭 Nav */
+    nav {
+      background-color: var(--bg);
