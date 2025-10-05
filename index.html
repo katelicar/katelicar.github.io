@@ -34,3 +34,105 @@
     /* 🧭 Nav */
     nav {
       background-color: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 0.5rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🌞 / 🌙 Toggle Button */
+    #theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.2);
+    }
+
+    /* 🧾 Page Layout */
+    main {
+      padding: 3rem 1rem 4rem;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0 0 0.2em;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: var(--muted);
+      margin: 0.4em 0;
+    }
+
+    a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="now.html">Now</a>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+
+  <main>
+    <h1>Doing IT Right</h1>
+    <p>Hi, I’m <strong>Katelyn Carriker</strong></p>
+    <p>Tech whisperer | Problem solver | Cat wrangler</p>
+
+    <p>Connect with me on
+      <a href="https://www.linkedin.com/in/katelyn-carriker/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+
+    <p><a href="about.html">Read more about me →</a></p>
+  </main>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // 🕶 Load saved preference
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggle.textContent = "☀️";
+    }
+
+    // 🌗 Toggle on click
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const isDark = body.classList.contains("dark");
+      toggle.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
